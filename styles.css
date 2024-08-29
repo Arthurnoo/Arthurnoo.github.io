@@ -10,43 +10,45 @@ body {
 /* Bandeau principal avec fond dégradé */
 .main-banner {
     background: linear-gradient(135deg, #6a00ff, #00d4ff);
-    padding: 50px;
-    text-align: center;
+    padding: 100px 20px; /* Augmentation de la hauteur */
     color: #fff;
     position: relative;
+    text-align: left; /* Aligner le texte à gauche */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
 }
 
 #logo {
-    width: 50px; /* Ajuste la taille en fonction du logo */
+    width: 50px;
     height: auto;
 }
 
 .main-banner h1 {
     font-size: 2.5em;
+    margin-left: 10px;
 }
 
 .main-nav {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    margin-right: 20px;
 }
 
 .main-nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    gap: 20px;
 }
 
 .main-nav ul li {
     display: inline;
-    margin-left: 20px;
 }
 
 .main-nav ul li a {
@@ -58,7 +60,7 @@ body {
 /* Style des autres bandeaux */
 .about-services-banner,
 .posts-projects-banner {
-    padding: 100px 20px;
+    padding: 150px 20px; /* Augmentation de la hauteur */
     text-align: center;
     background-color: #fff;
     border-top: 5px solid #6a00ff;
