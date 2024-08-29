@@ -5,16 +5,18 @@
     color: #fff;
     position: relative;
     text-align: left;
+    padding: 20px; /* Ajuster le padding pour donner de l'espace autour des éléments */
+    box-sizing: border-box;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px; /* Ajuster les marges internes */
+    flex-direction: column;
+    justify-content: flex-start; /* Aligner les éléments en haut */
 }
 
 .logo-container {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-bottom: 20px; /* Espace entre le logo et le reste */
 }
 
 #logo {
@@ -28,7 +30,7 @@
 }
 
 .main-nav {
-    margin-right: 20px;
+    align-self: flex-end; /* Aligner la navigation à droite */
 }
 
 .main-nav ul {
