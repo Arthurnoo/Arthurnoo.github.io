@@ -8,13 +8,13 @@
     box-sizing: border-box;
     display: flex;
     justify-content: space-between; /* Assure que le logo/nom et la navigation sont aux extrémités */
-    align-items: flex-start; /* Aligne les éléments en haut */
+    align-items: center; /* Aligne tous les éléments (logo, nom, navigation) à la même hauteur */
 }
 
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 }
 
 #logo {
@@ -31,7 +31,6 @@
 .main-nav {
     display: flex;
     align-items: center; /* Aligne la navigation à la même hauteur que le logo et le nom */
-    margin-top: 5px; /* Monte légèrement la navigation pour qu'elle soit au même niveau */
 }
 
 .main-nav ul {
