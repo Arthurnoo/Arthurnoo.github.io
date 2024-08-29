@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("Le site est chargé et prêt à l'emploi !");
-    // Tu pourras ajouter plus de scripts ici plus tard
+    const logo = document.getElementById('logo');
+    const title = document.querySelector('.logo-container h1');
+
+    logo.addEventListener('click', scrollToTop);
+    title.addEventListener('click', scrollToTop);
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 });
