@@ -9,6 +9,7 @@
     display: flex;
     justify-content: space-between; /* Assure que le logo/nom et la navigation sont aux extrémités */
     align-items: center; /* Aligne tous les éléments (logo, nom, navigation) à la même hauteur */
+    margin-top: -20px; /* Décale tous les éléments vers le haut */
 }
 
 .logo-container {
