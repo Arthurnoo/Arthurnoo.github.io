@@ -1,15 +1,17 @@
-/* Bandeau principal avec fond dégradé */
-.main-banner {
+/* Bandeau fixe en haut de la page */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background: linear-gradient(135deg, #6a00ff, #00d4ff);
-    height: 100vh; /* Hauteur équivalente à 100% de la hauteur de l'écran */
     color: #fff;
-    position: relative;
-    padding: 20px;
+    padding: 10px 20px;
     box-sizing: border-box;
     display: flex;
-    justify-content: space-between; /* Assure que le logo/nom et la navigation sont aux extrémités */
-    align-items: center; /* Aligne tous les éléments (logo, nom, navigation) à la même hauteur */
-    margin-top: -20px; /* Décale tous les éléments vers le haut */
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* Assure que le bandeau reste au-dessus des autres éléments */
 }
 
 .logo-container {
@@ -19,19 +21,18 @@
 }
 
 #logo {
-    width: 50px;
+    width: 40px;
     height: auto;
 }
 
-.main-banner h1 {
-    font-size: 2.5em;
-    margin-left: 10px;
-    line-height: 1; /* Assure un bon alignement vertical */
+.fixed-header h1 {
+    font-size: 1.8em;
+    margin: 0;
 }
 
 .main-nav {
     display: flex;
-    align-items: center; /* Aligne la navigation à la même hauteur que le logo et le nom */
+    align-items: center;
 }
 
 .main-nav ul {
@@ -50,4 +51,9 @@
     color: #fff;
     text-decoration: none;
     font-size: 1.2em;
+}
+
+/* Ajoute un padding-top au contenu principal pour compenser le bandeau fixe */
+body {
+    padding-top: 70px; /* Ajuste cette valeur pour s'adapter à la hauteur du bandeau fixe */
 }
