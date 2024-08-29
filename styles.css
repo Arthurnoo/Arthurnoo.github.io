@@ -4,19 +4,17 @@
     height: 100vh; /* Hauteur équivalente à 100% de la hauteur de l'écran */
     color: #fff;
     position: relative;
-    text-align: left;
-    padding: 20px; /* Ajuster le padding pour donner de l'espace autour des éléments */
+    padding: 20px;
     box-sizing: border-box;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Aligner les éléments en haut */
+    justify-content: space-between; /* Assure que le logo/nom et la navigation sont aux extrémités */
+    align-items: flex-start; /* Aligne les éléments en haut */
 }
 
 .logo-container {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 20px; /* Espace entre le logo et le reste */
 }
 
 #logo {
@@ -27,10 +25,13 @@
 .main-banner h1 {
     font-size: 2.5em;
     margin-left: 10px;
+    line-height: 1; /* Assure un bon alignement vertical */
 }
 
 .main-nav {
-    align-self: flex-end; /* Aligner la navigation à droite */
+    display: flex;
+    align-items: center; /* Aligne la navigation à la même hauteur que le logo et le nom */
+    margin-top: 5px; /* Monte légèrement la navigation pour qu'elle soit au même niveau */
 }
 
 .main-nav ul {
@@ -49,17 +50,4 @@
     color: #fff;
     text-decoration: none;
     font-size: 1.2em;
-}
-
-/* Style des autres bandeaux */
-.about-services-banner,
-.posts-projects-banner {
-    height: 100vh; /* Hauteur équivalente à 100% de la hauteur de l'écran */
-    text-align: center;
-    background-color: #fff;
-    border-top: 5px solid #6a00ff;
-    border-bottom: 5px solid #00d4ff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
