@@ -74,17 +74,15 @@
 .main-nav ul li a.contact-btn {
     padding: 10px 20px;
     border-radius: 20px; /* Coins arrondis pour le bouton Contact */
-    border: 2px solid #ff4500; /* Bordure orange vif */
-    color: #ff4500; /* Texte orange vif */
     background-color: #ffffff; /* Fond blanc */
+    color: #000000; /* Texte noir pour contraste */
     font-weight: bold; /* Texte en gras */
-    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Transition douce pour l'effet hover et le déplacement */
+    transition: transform 0.3s ease; /* Transition douce pour l'effet hover et le déplacement */
     position: relative; /* Nécessaire pour l'animation */
+    text-transform: uppercase;
 }
 
 .main-nav ul li a.contact-btn:hover {
-    background-color: #ff4500; /* Fond orange vif au survol */
-    color: #ffffff; /* Texte blanc au survol */
     transform: translateY(-5px); /* Légère montée du bouton */
 }
 
