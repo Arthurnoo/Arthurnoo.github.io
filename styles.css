@@ -1,4 +1,4 @@
-/* Bandeau fixe en haut de la page */
+/* Bandeau fixe en haut de la page avec bords inférieurs arrondis */
 .fixed-header {
     position: fixed;
     top: 0;
@@ -12,6 +12,8 @@
     justify-content: space-between;
     align-items: center;
     z-index: 1000; /* Assure que le bandeau reste au-dessus des autres éléments */
+    border-bottom-left-radius: 20px; /* Arrondi le coin inférieur gauche */
+    border-bottom-right-radius: 20px; /* Arrondi le coin inférieur droit */
 }
 
 .logo-link {
@@ -68,17 +70,18 @@
     font-weight: bold; /* Texte en gras */
 }
 
-/* Ajoute un padding-top au contenu principal pour compenser le bandeau fixe */
-body {
-    padding-top: 70px; /* Ajuste cette valeur pour s'adapter à la hauteur du bandeau fixe */
+/* Style spécial pour le bouton Contact */
+.main-nav ul li a.contact-btn {
+    padding: 10px 20px;
+    border-radius: 20px; /* Coins arrondis pour le bouton Contact */
+    border: 2px solid #ff4500; /* Bordure de couleur vive */
+    color: #ff4500; /* Texte de la même couleur que la bordure */
+    background-color: #ffffff; /* Fond blanc pour contraste */
+    font-weight: bold; /* Texte en gras */
+    transition: background-color 0.3s, color 0.3s; /* Transition douce pour l'effet hover */
 }
 
-/* Sections supplémentaires */
-.about-services-banner,
-.posts-projects-banner {
-    padding: 100px 20px;
-    text-align: center;
-    background-color: #fff;
-    border-top: 5px solid #6a00ff;
-    border-bottom: 5px solid #00d4ff;
+.main-nav ul li a.contact-btn:hover {
+    background-color: #ff4500; /* Fond orange vif au survol */
+    color: #ffffff; /* Texte blanc au survol */
 }
