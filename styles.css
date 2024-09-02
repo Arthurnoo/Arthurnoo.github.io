@@ -73,7 +73,7 @@
 /* Style spécial pour le bouton Contact */
 .main-nav ul li a.contact-btn {
     padding: 10px 20px;
-    border-radius: 20px; /* Coins arrondis pour le bouton Contact */
+    border-radius: 10px; /* Coins moins arrondis pour le bouton Contact */
     background-color: #ffffff; /* Fond blanc */
     color: #000000; /* Texte noir pour contraste */
     font-weight: bold; /* Texte en gras */
