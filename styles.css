@@ -68,7 +68,13 @@
     font-family: 'Helvetica', sans-serif; /* Utilisation de la police Helvetica */
     text-transform: uppercase; /* Texte en majuscules */
     font-weight: bold; /* Texte en gras */
-    transition: top 0.3s ease; /* Transition douce pour l'effet hover */
+    position: relative; /* Nécessaire pour permettre le déplacement du bouton */
+    top: 0; /* Position initiale des boutons */
+    transition: top 0.3s ease; /* Transition douce pour l'effet de montée */
+}
+
+.main-nav ul li a:hover {
+    top: -5px; /* Légère montée des boutons au survol */
 }
 
 /* Style spécial pour le bouton Contact */
@@ -79,13 +85,12 @@
     color: #000000; /* Texte noir pour contraste */
     font-weight: bold; /* Texte en gras */
     text-transform: uppercase;
-    position: relative; /* Nécessaire pour permettre le déplacement du bouton */
     top: 0; /* Position initiale du bouton */
     transition: top 0.3s ease; /* Transition douce pour l'effet de montée */
 }
 
 .main-nav ul li a.contact-btn:hover {
-    top: -5px; /* Légère montée du bouton au survol */
+    top: -5px; /* Légère montée du bouton Contact au survol */
 }
 
 /* Ajoute un padding-top au contenu principal pour compenser le bandeau fixe */
