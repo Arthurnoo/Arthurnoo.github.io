@@ -35,6 +35,9 @@
 .fixed-header h1 {
     font-size: 1.8em;
     margin: 0;
+    text-transform: uppercase; /* Met "DRIVIA" en majuscules */
+    font-weight: bold; /* Texte en gras */
+    font-family: 'Helvetica', sans-serif; /* Utilise la même police que les liens */
 }
 
 /* Style de la navigation */
@@ -67,4 +70,14 @@
 /* Ajoute un padding-top au contenu principal pour compenser le bandeau fixe */
 body {
     padding-top: 70px; /* Ajuste cette valeur pour s'adapter à la hauteur du bandeau fixe */
+}
+
+/* Sections supplémentaires */
+.about-services-banner,
+.posts-projects-banner {
+    padding: 100px 20px;
+    text-align: center;
+    background-color: #fff;
+    border-top: 5px solid #6a00ff;
+    border-bottom: 5px solid #00d4ff;
 }
