@@ -44,7 +44,7 @@
 .main-nav {
     display: flex;
     align-items: center;
-    margin-right: 50px; /* Décalage vers la gauche pour les boutons de navigation */
+    margin-right: 150px; /* Augmentation du décalage vers la gauche pour les boutons de navigation */
 }
 
 .main-nav ul {
