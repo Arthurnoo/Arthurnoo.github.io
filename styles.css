@@ -4,7 +4,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(90deg, #6a00ff, #8a2be2); /* Violet vers bleu violet */
+    background: linear-gradient(90deg, #4b0082, #7b68ee); /* Violet foncé vers bleu violet */
     color: #fff;
     padding: 10px 20px;
     box-sizing: border-box;
@@ -28,7 +28,7 @@
 }
 
 #logo {
-    width: 40px;
+    width: 50px;
     height: auto;
 }
 
@@ -61,6 +61,7 @@
     font-size: 1.2em;
     font-family: 'Helvetica', sans-serif; /* Utilisation de la police Helvetica */
     text-transform: uppercase; /* Texte en majuscules */
+    font-weight: bold; /* Texte en gras */
 }
 
 /* Ajoute un padding-top au contenu principal pour compenser le bandeau fixe */
