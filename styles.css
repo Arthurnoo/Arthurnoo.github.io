@@ -1,9 +1,9 @@
-/* Bandeau fixe en haut de la page avec position encore plus haute et encore plus fin */
+/* Bandeau fixe en haut de la page, qui reste visible lors du défilement */
 .fixed-header {
-    position: relative;
+    position: fixed; /* Change la position en fixe pour que le bandeau reste visible */
     top: 0; /* Positionne le bandeau en haut de la page */
-    left: 0;
-    right: 0;
+    left: 50%; /* Centrer le bandeau horizontalement */
+    transform: translateX(-50%) translateY(-100px); /* Centrer le bandeau et le remonter encore plus haut */
     width: 80%; /* Largeur inchangée à 80% */
     background: linear-gradient(90deg, #4b0082, #7b68ee); /* Violet foncé vers bleu violet */
     color: #fff;
@@ -16,7 +16,6 @@
     border-radius: 30px; /* Coins arrondis */
     margin-left: auto;
     margin-right: auto; /* Centre le bandeau horizontalement */
-    transform: translateY(-100px); /* Positionne le bandeau encore plus haut sur la page */
 }
 
 /* Deuxième bandeau vidéo avec le leitmotiv */
