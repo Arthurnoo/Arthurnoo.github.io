@@ -27,7 +27,7 @@
     color: #fff; /* Texte en blanc */
     text-align: center;
     z-index: -1; /* Positionne le bandeau en arrière-plan par rapport au premier bandeau */
-    padding-top: 150px; /* Décale le texte pour qu'il soit visible sous le premier bandeau */
+    padding-top: 250px; /* Descend le texte pour qu'il soit centré verticalement */
 }
 
 .leitmotiv-text {
