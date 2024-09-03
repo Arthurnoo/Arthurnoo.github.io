@@ -1,9 +1,9 @@
-/* Bandeau fixe en haut de la page avec bords inférieurs arrondis */
+/* Bandeau fixe en haut de la page avec bords inférieurs arrondis et largeur réduite */
 .fixed-header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 90%; /* Ajuste cette valeur pour contrôler la largeur du bandeau */
     background: linear-gradient(90deg, #4b0082, #7b68ee); /* Violet foncé vers bleu violet */
     color: #fff;
     padding: 10px 20px;
@@ -14,14 +14,23 @@
     z-index: 1000; /* Assure que le bandeau reste au-dessus des autres éléments */
     border-bottom-left-radius: 20px; /* Arrondi le coin inférieur gauche */
     border-bottom-right-radius: 20px; /* Arrondi le coin inférieur droit */
+    margin: 0 auto; /* Centre le bandeau horizontalement */
 }
 
+/* Les autres styles restent les mêmes... */
 .logo-link {
     display: flex;
     align-items: center;
     text-decoration: none; /* Supprime la sous-ligne du lien */
     color: inherit; /* Utilise la couleur du texte du parent */
     margin-left: 50px; /* Décalage vers la droite pour le logo et le titre */
+    position: relative; /* Nécessaire pour permettre le déplacement du logo et du nom */
+    top: 0; /* Position initiale du logo et du nom */
+    transition: top 0.3s ease; /* Transition douce pour l'effet de montée */
+}
+
+.logo-link:hover {
+    top: -5px; /* Légère montée du logo et du nom au survol */
 }
 
 .logo-container {
