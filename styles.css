@@ -1,26 +1,24 @@
 /* Bandeau fixe en haut de la page, qui reste visible lors du défilement */
 .fixed-header {
-    position: fixed; /* Change la position en fixe pour que le bandeau reste visible */
-    top: 0; /* Positionne le bandeau en haut de la page */
-    left: 50%; /* Centrer le bandeau horizontalement */
-    transform: translateX(-50%) translateY(-100px); /* Centrer le bandeau et le remonter encore plus haut */
-    width: 80%; /* Largeur inchangée à 80% */
+    position: fixed; /* Garde le bandeau fixe en haut de la page */
+    top: 0; /* Assure que le bandeau est bien en haut de la page */
+    left: 50%; /* Centre le bandeau horizontalement */
+    transform: translateX(-50%); /* Centrage horizontal */
+    width: 80%; /* Largeur à 80% de la fenêtre */
     background: linear-gradient(90deg, #4b0082, #7b68ee); /* Violet foncé vers bleu violet */
     color: #fff;
-    padding: 10px 20px; /* Réduction du padding vertical pour rendre le bandeau encore plus fin */
+    padding: 10px 20px; /* Réduction du padding vertical pour rendre le bandeau plus fin */
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000; /* Assure que le bandeau reste au-dessus des autres éléments */
     border-radius: 30px; /* Coins arrondis */
-    margin-left: auto;
-    margin-right: auto; /* Centre le bandeau horizontalement */
 }
 
 /* Deuxième bandeau vidéo avec le leitmotiv */
 .video-banner {
-    position: absolute;
+    position: relative; /* S'assure que ce bandeau reste dans le flux de la page */
     top: 0;
     left: 0;
     width: 100%;
@@ -127,5 +125,5 @@
 
 /* Ajoute un padding-top au contenu principal pour compenser le bandeau fixe */
 body {
-    padding-top: 130px; /* Ajuste cette valeur pour s'adapter à la hauteur du bandeau fixe */
+    padding-top: 80px; /* Ajuste cette valeur pour s'adapter à la hauteur du bandeau fixe */
 }
