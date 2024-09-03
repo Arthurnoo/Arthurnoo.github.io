@@ -4,7 +4,7 @@
     top: 20px; /* Espacement de 20px depuis le haut de la page */
     left: 0;
     right: 0;
-    width: 95%; /* Ajuste cette valeur pour contrôler la largeur du bandeau */
+    width: 80%; /* Réduction de la largeur à 80% pour un bandeau plus petit */
     background: linear-gradient(90deg, #4b0082, #7b68ee); /* Violet foncé vers bleu violet */
     color: #fff;
     padding: 10px 20px;
@@ -13,8 +13,9 @@
     justify-content: space-between;
     align-items: center;
     z-index: 1000; /* Assure que le bandeau reste au-dessus des autres éléments */
-    border-radius: 20px; /* Arrondit tous les coins du bandeau */
-    margin-left: 2.5%; /* Centre le bandeau horizontalement avec espace sur les côtés */
+    border-radius: 30px; /* Augmentation du rayon pour rendre les coins plus arrondis */
+    margin-left: auto;
+    margin-right: auto; /* Centre le bandeau horizontalement */
 }
 
 /* Les autres styles restent les mêmes... */
