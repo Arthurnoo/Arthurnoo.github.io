@@ -7,7 +7,7 @@
     width: 80%; /* Réduction de la largeur à 80% pour un bandeau plus petit */
     background: linear-gradient(90deg, #4b0082, #7b68ee); /* Violet foncé vers bleu violet */
     color: #fff;
-    padding: 10px 20px;
+    padding: 30px 20px; /* Augmentation du padding pour rendre le bandeau plus haut */
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
@@ -29,7 +29,7 @@
     color: #fff; /* Texte en blanc */
     text-align: center;
     z-index: -1; /* Positionne le bandeau en arrière-plan par rapport au premier bandeau */
-    padding-top: 150px; /* Décale le texte vers le bas pour qu'il ne soit pas caché par le premier bandeau */
+    padding-top: 200px; /* Décale le texte plus bas pour qu'il soit visible sous le premier bandeau */
 }
 
 .leitmotiv-text {
