@@ -1,7 +1,7 @@
-/* Bandeau fixe en haut de la page avec bords inférieurs arrondis et largeur réduite */
+/* Bandeau fixe en haut de la page avec bords inférieurs arrondis, largeur réduite et espacement en haut */
 .fixed-header {
     position: fixed;
-    top: 0;
+    top: 20px; /* Espacement de 20px depuis le haut de la page */
     left: 0;
     right: 0;
     width: 95%; /* Ajuste cette valeur pour contrôler la largeur du bandeau */
@@ -13,9 +13,8 @@
     justify-content: space-between;
     align-items: center;
     z-index: 1000; /* Assure que le bandeau reste au-dessus des autres éléments */
-    border-bottom-left-radius: 20px; /* Arrondi le coin inférieur gauche */
-    border-bottom-right-radius: 20px; /* Arrondi le coin inférieur droit */
-    margin-left: 2.5%; /* Ajuste cette valeur pour centrer le bandeau avec un espace sur les côtés */
+    border-radius: 20px; /* Arrondit tous les coins du bandeau */
+    margin-left: 2.5%; /* Centre le bandeau horizontalement avec espace sur les côtés */
 }
 
 /* Les autres styles restent les mêmes... */
@@ -104,7 +103,7 @@
 
 /* Ajoute un padding-top au contenu principal pour compenser le bandeau fixe */
 body {
-    padding-top: 70px; /* Ajuste cette valeur pour s'adapter à la hauteur du bandeau fixe */
+    padding-top: 90px; /* Ajuste cette valeur pour s'adapter à la hauteur du bandeau fixe */
 }
 
 /* Sections supplémentaires */
