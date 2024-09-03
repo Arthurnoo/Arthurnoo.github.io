@@ -18,7 +18,7 @@
     margin-right: auto; /* Centre le bandeau horizontalement */
 }
 
-/* Les autres styles restent les mêmes... */
+/* Logo et nom de l'entreprise */
 .logo-link {
     display: flex;
     align-items: center;
@@ -52,6 +52,7 @@
     font-family: 'Helvetica', sans-serif; /* Utilise la même police que les liens */
 }
 
+/* Navigation principale */
 .main-nav {
     display: flex;
     align-items: center;
@@ -107,12 +108,20 @@ body {
     padding-top: 90px; /* Ajuste cette valeur pour s'adapter à la hauteur du bandeau fixe */
 }
 
-/* Sections supplémentaires */
-.about-services-banner,
-.posts-projects-banner {
+/* Bandeau vidéo avec le leitmotiv */
+.video-banner {
+    background-color: #87CEEB; /* Bleu clair */
+    color: #fff; /* Texte en blanc */
     padding: 100px 20px;
     text-align: center;
-    background-color: #fff;
-    border-top: 5px solid #6a00ff;
-    border-bottom: 5px solid #00d4ff;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Police extravagante */
+    border-radius: 30px; /* Coins arrondis pour l'effet élégant */
+    margin-top: 20px; /* Un peu d'espace entre le bandeau du haut et celui-ci */
+}
+
+.leitmotiv-text {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
 }
