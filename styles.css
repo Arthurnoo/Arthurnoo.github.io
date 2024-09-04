@@ -61,12 +61,13 @@
     text-transform: uppercase;
     font-weight: bold;
     position: relative;
-    top: 0;
-    transition: color 0.3s ease; /* Transition pour la couleur au survol */
+    top: 0; /* Position initiale des liens */
+    transition: top 0.3s ease, color 0.3s ease; /* Transition pour l'effet de montée et la couleur */
 }
 
-/* Changement de couleur au survol pour les liens */
+/* Animation de montée au survol */
 .main-nav ul li a:hover {
+    top: -5px; /* Légère montée des liens au survol */
     color: #007BFF; /* Bleu au survol */
 }
 
@@ -78,11 +79,14 @@
     color: #FFFFFF; /* Texte blanc pour contraste */
     font-weight: bold;
     text-transform: uppercase;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    top: 0; /* Position initiale du bouton Contact */
+    transition: top 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Changement de couleur pour le bouton Contact au survol */
+/* Changement de couleur et montée pour le bouton Contact au survol */
 .main-nav ul li a.contact-btn:hover {
+    top: -5px; /* Légère montée du bouton Contact */
     background-color: #FFFFFF; /* Fond blanc au survol */
     color: #007BFF; /* Texte bleu au survol */
 }
