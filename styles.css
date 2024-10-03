@@ -31,18 +31,19 @@
     font-weight: bold;
     margin: 0;
     color: #000000; /* Texte noir */
-    font-family: 'Roboto', sans-serif; /* Police du menu */
+    font-family: 'Helvetica', sans-serif; /* Même police que le menu */
+    text-align: center; /* Centrer le texte */
     animation: slideUp 1s ease-out; /* Animation de montée */
 }
 
 @keyframes slideUp {
     from {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(50px); /* Commence 50px plus bas */
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0); /* Arrive à sa position finale */
     }
 }
 
@@ -69,7 +70,7 @@
     color: #000000; /* Texte noir */
     text-decoration: none;
     font-size: 1.2em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Helvetica', sans-serif;
     text-transform: uppercase;
     font-weight: bold;
     position: relative;
