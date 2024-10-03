@@ -2,30 +2,28 @@
 .illustration-banner {
     height: 100vh; /* Section pleine page pour l'illustration */
     display: flex;
-    flex-direction: column; /* Aligner les éléments verticalement */
-    justify-content: center; /* Centrer verticalement */
-    align-items: center;     /* Centrer horizontalement */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center;     /* Centrer verticalement */
     background-color: #f0f0f0; /* Placeholder gris clair pour l'illustration */
 }
 
-.leitmotiv-text1,
-.leitmotiv-text2 {
+.leitmotiv-container {
+    text-align: center; /* Centrer le texte à l'intérieur du conteneur */
+}
+
+.leitmotiv-text {
     font-size: 3.5em;
     font-weight: bold;
     margin: 0;
+    padding: 0;
     color: #000000; /* Texte noir */
     font-family: 'Helvetica', sans-serif; /* Même police que le menu */
-    text-align: center; /* Centrer le texte */
-}
-
-/* Animation pour la première ligne */
-.leitmotiv-text1 {
     animation: slideUp 1s ease-out;
 }
 
-/* Animation pour la deuxième ligne (optionnel) */
-.leitmotiv-text2 {
-    animation: slideUp 1s ease-out 0.5s; /* Démarre avec un décalage de 0.5s */
+/* Appliquer un délai à la deuxième ligne */
+.leitmotiv-text:nth-child(2) {
+    animation-delay: 0.5s;
 }
 
 /* Animation de montée */
