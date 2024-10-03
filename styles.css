@@ -1,10 +1,13 @@
+/* ... Vos styles existants ... */
+
 /* Section illustration */
 .illustration-banner {
-    height: 100vh; /* Section pleine page pour l'illustration */
+    height: calc(100vh - 120px); /* Hauteur de la section moins le padding-top du body */
     display: flex;
-    justify-content: center; /* Centrer horizontalement */
-    align-items: center;     /* Centrer verticalement */
-    background-color: #f0f0f0; /* Placeholder gris clair pour l'illustration */
+    justify-content: flex-start; /* Aligner les éléments vers le haut */
+    align-items: center;         /* Centrer horizontalement */
+    background-color: #f0f0f0;
+    padding-top: 50px;           /* Ajuster cette valeur pour positionner le texte plus haut ou plus bas */
 }
 
 .leitmotiv-container {
@@ -16,26 +19,38 @@
     font-weight: bold;
     margin: 0;
     padding: 0;
-    color: #000000; /* Texte noir */
-    font-family: 'Helvetica', sans-serif; /* Même police que le menu */
+    color: #000000;
+    font-family: 'Helvetica', sans-serif;
     animation: slideUp 1s ease-out;
 }
 
-/* Appliquer un délai à la deuxième ligne */
-.leitmotiv-text:nth-child(2) {
-    animation-delay: 0.5s;
+.leitmotiv-text + .leitmotiv-text {
+    margin-top: 0.5em; /* Espacement entre les deux lignes */
 }
 
-/* Animation de montée */
+.leitmotiv-text.indent {
+    text-indent: 1em; /* Indenter la deuxième ligne */
+}
+
 @keyframes slideUp {
     from {
         opacity: 0;
-        transform: translateY(50px); /* Commence 50px plus bas */
+        transform: translateY(50px);
     }
     to {
         opacity: 1;
-        transform: translateY(0); /* Arrive à sa position finale */
+        transform: translateY(0);
     }
 }
 
-/* ... autres styles existants ... */
+/* Appliquer un délai à la deuxième ligne pour l'animation */
+.leitmotiv-text.indent {
+    animation-delay: 0.3s;
+}
+
+/* Ajuster le padding-top du body pour compenser la hauteur du header */
+body {
+    padding-top: 120px;
+}
+
+/* ... Autres styles existants ... */
