@@ -30,8 +30,20 @@
     font-size: 3.5em;
     font-weight: bold;
     margin: 0;
-    text-transform: uppercase;
     color: #000000; /* Texte noir */
+    font-family: 'Roboto', sans-serif; /* Police du menu */
+    animation: slideUp 1s ease-out; /* Animation de montée */
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Navigation principale */
@@ -57,7 +69,7 @@
     color: #000000; /* Texte noir */
     text-decoration: none;
     font-size: 1.2em;
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     font-weight: bold;
     position: relative;
