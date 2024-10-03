@@ -1,41 +1,34 @@
-/* Barre de navigation (sans logo et nom d'entreprise) */
-.fixed-header {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50%; /* Largeur de la barre inchangée */
-    background-color: #FFFFFF; /* Fond blanc */
-    color: #000000; /* Texte noir */
-    padding: 15px 20px; /* Padding vertical augmenté pour rendre la barre plus épaisse */
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    border-radius: 50px; /* Bords arrondis */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre subtile */
-}
-
 /* Section illustration */
 .illustration-banner {
     height: 100vh; /* Section pleine page pour l'illustration */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* Aligner les éléments verticalement */
+    justify-content: center; /* Centrer verticalement */
+    align-items: center;     /* Centrer horizontalement */
     background-color: #f0f0f0; /* Placeholder gris clair pour l'illustration */
 }
 
-.leitmotiv-text {
+.leitmotiv-text1,
+.leitmotiv-text2 {
     font-size: 3.5em;
     font-weight: bold;
     margin: 0;
     color: #000000; /* Texte noir */
     font-family: 'Helvetica', sans-serif; /* Même police que le menu */
     text-align: center; /* Centrer le texte */
-    animation: slideUp 1s ease-out; /* Animation de montée */
 }
 
+/* Animation pour la première ligne */
+.leitmotiv-text1 {
+    animation: slideUp 1s ease-out;
+}
+
+/* Animation pour la deuxième ligne (optionnel) */
+.leitmotiv-text2 {
+    animation: slideUp 1s ease-out 0.5s; /* Démarre avec un décalage de 0.5s */
+}
+
+/* Animation de montée */
 @keyframes slideUp {
     from {
         opacity: 0;
@@ -47,64 +40,4 @@
     }
 }
 
-/* Navigation principale */
-.main-nav {
-    display: flex;
-    justify-content: center;
-}
-
-.main-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-}
-
-.main-nav ul li {
-    display: inline;
-}
-
-/* Liens de navigation */
-.main-nav ul li a {
-    color: #000000; /* Texte noir */
-    text-decoration: none;
-    font-size: 1.2em;
-    font-family: 'Helvetica', sans-serif;
-    text-transform: uppercase;
-    font-weight: bold;
-    position: relative;
-    top: 0; /* Position initiale des liens */
-    transition: top 0.3s ease, color 0.3s ease; /* Transition pour l'effet de montée et la couleur */
-}
-
-/* Animation de montée au survol */
-.main-nav ul li a:hover {
-    top: -5px; /* Légère montée des liens au survol */
-    color: #007BFF; /* Bleu au survol */
-}
-
-/* Style spécial pour le bouton Contact */
-.main-nav ul li a.contact-btn {
-    padding: 10px 20px;
-    border-radius: 10px;
-    background-color: #007BFF; /* Fond bleu pour le bouton */
-    color: #FFFFFF; /* Texte blanc pour contraste */
-    font-weight: bold;
-    text-transform: uppercase;
-    position: relative;
-    top: 0; /* Position initiale du bouton Contact */
-    transition: top 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Changement de couleur et montée pour le bouton Contact au survol */
-.main-nav ul li a.contact-btn:hover {
-    top: -5px; /* Légère montée du bouton Contact */
-    background-color: #FFFFFF; /* Fond blanc au survol */
-    color: #007BFF; /* Texte bleu au survol */
-}
-
-/* Ajoute un padding-top au contenu principal pour compenser le bandeau fixe */
-body {
-    padding-top: 120px; /* Ajuste la hauteur en fonction de la nouvelle épaisseur de la barre */
-}
+/* ... autres styles existants ... */
