@@ -78,15 +78,15 @@ body {
 .illustration-banner {
     height: calc(100vh - 120px); /* Hauteur de la fenêtre moins la barre de navigation */
     display: flex;
-    justify-content: center; /* Centre horizontalement */
-    align-items: center;     /* Centre verticalement */
+    justify-content: flex-end; /* Aligne le contenu vers la droite */
+    align-items: center;       /* Centre verticalement */
     background-color: #f0f0f0;
-    text-align: center;      /* Centre le texte à l'intérieur de la section */
+    padding-right: 50px;       /* Espace à droite pour le texte */
 }
 
 /* Conteneur du texte */
 .leitmotiv-container {
-    text-align: center; /* Centre le texte dans le conteneur */
+    text-align: right; /* Aligne le texte à droite à l'intérieur du conteneur */
 }
 
 /* Style du texte de la bannière */
