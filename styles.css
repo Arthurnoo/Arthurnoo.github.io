@@ -78,16 +78,17 @@ body {
 .illustration-banner {
     height: calc(100vh - 120px); /* Hauteur de la fenêtre moins la barre de navigation */
     display: flex;
-    justify-content: flex-start; /* Aligner vers le haut */
-    align-items: center;         /* Centrer horizontalement */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center;     /* Centre verticalement */
     background-color: #f0f0f0;
-    padding-top: 50px; /* Ajustez cette valeur pour positionner le texte plus haut ou plus bas */
 }
 
+/* Conteneur de la phrase */
 .leitmotiv-container {
-    text-align: center; /* Centrer le texte à l'intérieur du conteneur */
+    text-align: center; /* Centre le texte à l'intérieur du conteneur */
 }
 
+/* Style du texte de la bannière */
 .leitmotiv-text {
     font-size: 3.5em;
     font-weight: bold;
@@ -96,7 +97,6 @@ body {
     color: #000000;
     font-family: 'Helvetica', sans-serif;
     animation: slideUp 1s ease-out;
-    animation-delay: 0s; /* Assure que les deux lignes animent en même temps */
 }
 
 .leitmotiv-text + .leitmotiv-text {
@@ -104,7 +104,7 @@ body {
 }
 
 .leitmotiv-text.indent {
-    text-indent: 1em; /* Indenter la deuxième ligne */
+    text-indent: 0; /* Supprime l'indentation si tu veux le centrer totalement */
 }
 
 /* Animation de montée */
