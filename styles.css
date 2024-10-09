@@ -81,11 +81,12 @@ body {
     justify-content: center; /* Centre horizontalement */
     align-items: center;     /* Centre verticalement */
     background-color: #f0f0f0;
+    text-align: center;      /* Centre le texte à l'intérieur de la section */
 }
 
-/* Conteneur de la phrase */
+/* Conteneur du texte */
 .leitmotiv-container {
-    text-align: center; /* Centre le texte à l'intérieur du conteneur */
+    text-align: center; /* Centre le texte dans le conteneur */
 }
 
 /* Style du texte de la bannière */
@@ -101,10 +102,6 @@ body {
 
 .leitmotiv-text + .leitmotiv-text {
     margin-top: 0.5em; /* Espacement entre les deux lignes */
-}
-
-.leitmotiv-text.indent {
-    text-indent: 0; /* Supprime l'indentation si tu veux le centrer totalement */
 }
 
 /* Animation de montée */
