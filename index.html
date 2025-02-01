@@ -28,46 +28,45 @@
         </div>
     </section>
 
-    <!-- Script Voiceflow pour intégrer le chatbot avec extensions -->
+    <!-- Script Voiceflow pour intégrer le nouveau chatbot avec extensions -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script type="module">
       import { DisableInputExtension, VideoExtension, TimerExtension, FormExtension, MapExtension, FileUploadExtension, KBUploadExtension, DateExtension, ConfettiExtension, FeedbackExtension } from '/extensions.js';
 
-      (function (d, t) {
-        var v = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-        v.onload = function () {
-          window.voiceflow.chat.load({
-            verify: { projectID: '67699cf5fcda77bb4f853fa3' },
-            url: 'https://general-runtime.voiceflow.com',
-            versionID: 'production',
-            user: {
-              name: 'Utilisateur Demo',
-            },
-            render: {
-              mode: 'overlay',
-            },
-            autostart: true,
-            allowDangerousHTML: true,
-            assistant: {
-              extensions: [
-                DisableInputExtension,
-                VideoExtension,
-                TimerExtension,
-                FormExtension,
-                MapExtension,
-                FileUploadExtension,
-                KBUploadExtension,
-                DateExtension,
-                ConfettiExtension,
-                FeedbackExtension,
-              ],
-            },
-          });
-        };
-        v.src = 'https://cdn.voiceflow.com/widget/bundle.mjs';
-        v.type = 'text/javascript';
-        s.parentNode.insertBefore(v, s);
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '679e0801d8deaec7e04d099c' }, // Nouveau chatbot Voiceflow
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production',
+              user: {
+                name: 'Utilisateur Demo',
+              },
+              render: {
+                mode: 'overlay',
+              },
+              autostart: true,
+              allowDangerousHTML: true,
+              assistant: {
+                extensions: [
+                  DisableInputExtension,
+                  VideoExtension,
+                  TimerExtension,
+                  FormExtension,
+                  MapExtension,
+                  FileUploadExtension,
+                  KBUploadExtension,
+                  DateExtension,
+                  ConfettiExtension,
+                  FeedbackExtension,
+                ],
+              },
+            });
+          };
+          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+          v.type = "text/javascript";
+          s.parentNode.insertBefore(v, s);
       })(document, 'script');
     </script>
 
