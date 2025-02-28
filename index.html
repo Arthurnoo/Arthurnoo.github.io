@@ -30,9 +30,12 @@
 
     <!-- Script Voiceflow pour intégrer le nouveau chatbot avec extensions -->
     <script type="text/javascript">
-        (function(d, t) {
-        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-        v.onload = function() {
+      import { DisableInputExtension, VideoExtension, TimerExtension, FormExtension, MapExtension, FileUploadExtension, KBUploadExtension, DateExtension, ConfettiExtension, FeedbackExtension } from './extensions.js';
+
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+
+          v.onload = function() {
             window.voiceflow.chat.load({
               verify: { projectID: '679eb021485466595303ae72' },
               url: 'https://general-runtime.voiceflow.com',
