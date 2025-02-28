@@ -30,7 +30,9 @@
 
     <!-- Script Voiceflow pour intégrer le nouveau chatbot avec extensions -->
     <script type="text/javascript">
-      import { DisableInputExtension, VideoExtension, TimerExtension, FormExtension, MapExtension, FileUploadExtension, KBUploadExtension, DateExtension, ConfettiExtension, FeedbackExtension } from './extensions.js';
+      // Définition des extensions directement ici (exemple simplifié)
+      const DisableInputExtension = {}; // Définition de l'extension
+      const FileUploadExtension = {};  // Ajoute ici toutes tes extensions nécessaires
 
       (function(d, t) {
           var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
@@ -39,18 +41,24 @@
             window.voiceflow.chat.load({
               verify: { projectID: '679eb021485466595303ae72' },
               url: 'https://general-runtime.voiceflow.com',
-              versionID: 'production', 
+              versionID: 'production',
               voice: { 
                 url: "https://runtime-api.voiceflow.com" 
               },
               assistant: {
-                extensions: [FileUploadExtension]
+                extensions: [
+                  FileUploadExtension // Assurez-vous que cette variable est bien définie
+                ]
               }
             });
-          }
-          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+          };
+
+          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+          v.type = "text/javascript";
+          s.parentNode.insertBefore(v, s);
       })(document, 'script');
     </script>
+
 
 
 </body>
