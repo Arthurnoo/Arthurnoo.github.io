@@ -29,44 +29,20 @@
     </section>
 
     <!-- Script Voiceflow pour intégrer le nouveau chatbot avec extensions -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-    <script type="module">
-      import { DisableInputExtension, VideoExtension, TimerExtension, FormExtension, MapExtension, FileUploadExtension, KBUploadExtension, DateExtension, ConfettiExtension, FeedbackExtension } from '/extensions.js';
-
+    <script type="text/javascript">
       (function(d, t) {
           var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
           v.onload = function() {
             window.voiceflow.chat.load({
-              verify: { projectID: '67c21bc7b20e19cdb7e8cc37' }, // Nouveau chatbot Voiceflow
+              verify: { projectID: '67c21bc7b20e19cdb7e8cc37' },
               url: 'https://general-runtime.voiceflow.com',
-              versionID: 'production',
-              user: {
-                name: 'Utilisateur Demo',
-              },
-              render: {
-                mode: 'overlay',
-              },
-              autostart: true,
-              allowDangerousHTML: true,
-              assistant: {
-                extensions: [
-                  DisableInputExtension,
-                  VideoExtension,
-                  TimerExtension,
-                  FormExtension,
-                  MapExtension,
-                  FileUploadExtension,
-                  KBUploadExtension,
-                  DateExtension,
-                  ConfettiExtension,
-                  FeedbackExtension,
-                ],
-              },
+              versionID: 'production', 
+              voice: { 
+                url: "https://runtime-api.voiceflow.com" 
+              }
             });
-          };
-          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
-          v.type = "text/javascript";
-          s.parentNode.insertBefore(v, s);
+          }
+          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
       })(document, 'script');
     </script>
 
