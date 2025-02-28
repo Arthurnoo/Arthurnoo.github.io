@@ -30,34 +30,124 @@
 
     <!-- Script Voiceflow pour intégrer le nouveau chatbot avec extensions -->
     <script type="text/javascript">
-      // Définition des extensions directement ici (exemple simplifié)
-      const DisableInputExtension = {}; // Définition de l'extension
-      const FileUploadExtension = {};  // Ajoute ici toutes tes extensions nécessaires
+  // Définition de l'extension FileUpload directement dans le script
+  const FileUploadExtension = {
+    name: 'FileUpload',
+    type: 'response',
+    match: ({ trace }) =>
+      trace.type === 'ext_fileUpload' || trace.payload.name === 'ext_fileUpload',
+    render: ({ trace, element }) => {
+      const fileUploadContainer = document.createElement('div')
+      fileUploadContainer.innerHTML = `
+        <style>
+          .my-file-upload {
+            border: 2px dashed rgba(46, 110, 225, 0.3);
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+          }
+        </style>
+        <div class='my-file-upload'>Glissez-déposez un fichier ici ou cliquez pour le télécharger</div>
+        <input type='file' style='display: none;'>
+      `
 
-      (function(d, t) {
-          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      const fileInput = fileUploadContainer.querySelector('input[type=file]')
+      const fileUploadBox = fileUploadContainer.querySelector('.my-file-upload')
 
-          v.onload = function() {
-            window.voiceflow.chat.load({
-              verify: { projectID: '679eb021485466595303ae72' },
-              url: 'https://general-runtime.voiceflow.com',
-              versionID: 'production',
-              voice: { 
-                url: "https://runtime-api.voiceflow.com" 
+      fileUploadBox.addEventListener('click', function () {
+        fileInput.click()
+      })
+
+      fileInput.addEventListener('change', function () {
+        const file = fileInput.files[0]
+        console.log('File selected:', file)
+
+        fileUploadContainer.innerHTML = `<img src="https://s3.amazonaws.com/com.voiceflow.studio/share/upload/upload.gif" alt="Upload" width="50" height="50">`
+
+        var data = new FormData()
+        data.append('file', file)
+
+        fetch('https://tmpfiles.org/api/v1/upload', {
+          method: 'POST',
+          body: data,
+        })
+          .then((response) => {
+            if (response.ok) {
+              return response.json()
+            } else {
+              throw new Error('Upload failed: ' + response.statusText)
+            }
+          })
+          .then((result) => {
+            fileUploadContainer.innerHTML =
+              '<img src="https://s3.amazonaws.com/com.voiceflow.studio/share/check/check.gif" alt="Done" width="50" height="50">'
+            console.log('File uploaded:', result.data.url)
+            window.voiceflow.chat.interact({
+              type: 'complete',
+              payload: {
+                file: result.data.url.replace(
+                  'https://tmpfiles.org/',
+                  'https://tmpfiles.org/dl/'
+                ),
               },
-              assistant: {
-                extensions: [
-                  FileUploadExtension // Assurez-vous que cette variable est bien définie
-                ]
-              }
-            });
-          };
+            })
+          })
+          .catch((error) => {
+            console.error(error)
+            fileUploadContainer.innerHTML = '<div>Error during upload</div>'
+          })
+      })
 
-          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
-          v.type = "text/javascript";
-          s.parentNode.insertBefore(v, s);
-      })(document, 'script');
-    </script>
+      element.appendChild(fileUploadContainer)
+    },
+  }
+
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '679eb021485466595303ae72' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production',
+          voice: { 
+            url: "https://runtime-api.voiceflow.com" 
+          },
+          render: {
+            mode: 'overlay',
+            position: "bottom-right",
+            theme: {
+                primaryColor: "#0E3925",
+                backgroundColor: "#f4f4f4",
+                bubbleColor: "#ffffff"
+            }
+          },
+          autostart: true,
+          allowDangerousHTML: true,
+          assistant: {
+            extensions: [
+              FileUploadExtension
+            ],
+          },
+        }).then(() => {
+          setTimeout(() => {
+            window.voiceflow.chat.open();
+            setTimeout(() => {
+              window.voiceflow.chat.proactive.push({
+                type: 'text',
+                payload: { message: '👋 Bonjour ! Comment puis-je vous aider ?' }
+              });
+            }, 1000);
+          }, 2000);
+        });
+      }
+      
+      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+      v.type = "text/javascript";
+      s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
+
 
 
 
