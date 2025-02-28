@@ -30,64 +30,37 @@
 
     <!-- Script Voiceflow pour intégrer le nouveau chatbot avec extensions -->
     <script type="text/javascript">
-  (function(d, t) {
-      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-      
-      v.onload = function() {
-        window.voiceflow.chat.load({
-          verify: { projectID: '679eb021485466595303ae72' },
-          url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production',
-          voice: { 
-            url: "https://runtime-api.voiceflow.com" 
-          },
-          render: {
-            mode: 'overlay',
-            position: "bottom-right",
-            theme: {
-                primaryColor: "#0E3925",
-                backgroundColor: "#f4f4f4",
-                bubbleColor: "#ffffff"
-            }
-          },
-          autostart: true,
-          allowDangerousHTML: true,
-          assistant: {
-            extensions: [
-              DisableInputExtension,
-              VideoExtension,
-              TimerExtension,
-              FormExtension,
-              MapExtension,
-              FileUploadExtension,
-              KBUploadExtension,
-              DateExtension,
-              ConfettiExtension,
-              FeedbackExtension,
-            ],
-          },
-        }).then(() => {
-          // Attendre que le chatbot soit chargé avant d'ouvrir et envoyer un message
-          setTimeout(() => {
-            // Ouvre automatiquement le chatbot
-            window.voiceflow.chat.open();
-
-            // Envoie un message proactif après l’ouverture
-            setTimeout(() => {
-              window.voiceflow.chat.proactive.push({
-                type: 'text',
-                payload: { message: '👋 Bonjour ! Comment puis-je vous aider ?' }
-              });
-            }, 1000); // Attendre une seconde pour éviter les erreurs
-          }, 2000); // Délai pour s'assurer du chargement complet
-        });
-      }
-      
-      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
-      v.type = "text/javascript";
-      s.parentNode.insertBefore(v, s);
-  })(document, 'script');
-</script>
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '679eb021485466595303ae72' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production', 
+              voice: { 
+                url: "https://runtime-api.voiceflow.com" 
+              },
+              autostart: true,
+              allowDangerousHTML: true,
+              assistant: {
+                extensions: [
+                  DisableInputExtension,
+                  VideoExtension,
+                  TimerExtension,
+                  FormExtension,
+                  MapExtension,
+                  FileUploadExtension,
+                  KBUploadExtension,
+                  DateExtension,
+                  ConfettiExtension,
+                  FeedbackExtension,
+                ],
+              }
+            });
+          }
+          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
 
 
 </body>
