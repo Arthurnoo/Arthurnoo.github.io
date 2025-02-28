@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Chat Widget | Extensions Demo</title>
+    <title>Site internet de tests</title>
     <style>
       body {
         background-color: #f9f9f9;
@@ -30,7 +30,7 @@
     <div id="flat-chat"></div>
     <div id="voiceflow-chat-frame"></div>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-    <script type="module">
+    <script type="text/javascript">
       import { DisableInputExtension,
                 VideoExtension,
                 TimerExtension,
@@ -49,9 +49,9 @@
           window.voiceflow.chat.load({
             verify: { projectID: '679eb021485466595303ae72' },
             url: 'https://general-runtime.voiceflow.com',
-            versionID: 'development',
-            user: {
-              name: 'Demo User',
+            versionID: 'production',
+            voice: {
+              url: 'https://runtime.voiceflow.com',
             },
             render: {
               mode: 'overlay',
@@ -74,7 +74,7 @@
             },
           });
         };
-        v.src = 'https://cdn.voiceflow.com/widget/bundle.mjs';
+        v.src = 'https://cdn.voiceflow.com/widget-next/bundle.mjs';
         v.type = 'text/javascript';
         s.parentNode.insertBefore(v, s);
       })(document, 'script');
