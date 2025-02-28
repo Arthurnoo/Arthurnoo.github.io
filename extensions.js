@@ -5,7 +5,7 @@ export const DisableInputExtension = {
   type: 'effect',
   match: ({ trace }) =>
     trace.type === 'ext_disableInput' ||
-    trace.payload.name === 'ext_disableInput',
+    trace.payload?.name === 'ext_disableInput',
   effect: ({ trace }) => {
     const { isDisabled } = trace.payload
 
@@ -98,7 +98,7 @@ export const FormExtension = {
   name: 'Forms',
   type: 'response',
   match: ({ trace }) =>
-    trace.type === 'ext_form' || trace.payload.name === 'ext_form',
+    trace.type === 'ext_form' || trace.payload?.name === 'ext_form',
   render: ({ trace, element }) => {
     const formContainer = document.createElement('form')
 
@@ -199,7 +199,7 @@ export const VideoExtension = {
   name: 'Video',
   type: 'response',
   match: ({ trace }) =>
-    trace.type === 'ext_video' || trace.payload.name === 'ext_video',
+    trace.type === 'ext_video' || trace.payload?.name === 'ext_video',
   render: ({ trace, element }) => {
     const videoElement = document.createElement('video')
     const { videoURL, autoplay, controls } = trace.payload
@@ -225,7 +225,7 @@ export const TimerExtension = {
   name: 'Timer',
   type: 'response',
   match: ({ trace }) =>
-    trace.type === 'ext_timer' || trace.payload.name === 'ext_timer',
+    trace.type === 'ext_timer' || trace.payload?.name === 'ext_timer',
   render: ({ trace, element }) => {
     const { duration } = trace.payload || 5
     let timeLeft = duration
@@ -251,7 +251,7 @@ export const FileUploadExtension = {
   name: 'FileUpload',
   type: 'response',
   match: ({ trace }) =>
-    trace.type === 'ext_fileUpload' || trace.payload.name === 'ext_fileUpload',
+    trace.type === 'ext_fileUpload' || trace.payload?.name === 'ext_fileUpload',
   render: ({ trace, element }) => {
     const fileUploadContainer = document.createElement('div')
     fileUploadContainer.innerHTML = `
@@ -322,7 +322,7 @@ export const KBUploadExtension = {
   name: 'KBUpload',
   type: 'response',
   match: ({ trace }) =>
-    trace.type === 'ext_KBUpload' || trace.payload.name === 'ext_KBUpload',
+    trace.type === 'ext_KBUpload' || trace.payload?.name === 'ext_KBUpload',
   render: ({ trace, element }) => {
     const apiKey = trace.payload.apiKey || null
     const maxChunkSize = trace.payload.maxChunkSize || 1000
@@ -408,7 +408,7 @@ export const DateExtension = {
   name: 'Date',
   type: 'response',
   match: ({ trace }) =>
-    trace.type === 'ext_date' || trace.payload.name === 'ext_date',
+    trace.type === 'ext_date' || trace.payload?.name === 'ext_date',
   render: ({ trace, element }) => {
     const formContainer = document.createElement('form')
 
@@ -510,7 +510,7 @@ export const ConfettiExtension = {
   name: 'Confetti',
   type: 'effect',
   match: ({ trace }) =>
-    trace.type === 'ext_confetti' || trace.payload.name === 'ext_confetti',
+    trace.type === 'ext_confetti' || trace.payload?.name === 'ext_confetti',
   effect: ({ trace }) => {
     const canvas = document.querySelector('#confetti-canvas')
 
@@ -529,7 +529,7 @@ export const FeedbackExtension = {
   name: 'Feedback',
   type: 'response',
   match: ({ trace }) =>
-    trace.type === 'ext_feedback' || trace.payload.name === 'ext_feedback',
+    trace.type === 'ext_feedback' || trace.payload?.name === 'ext_feedback',
   render: ({ trace, element }) => {
     const feedbackContainer = document.createElement('div')
 
