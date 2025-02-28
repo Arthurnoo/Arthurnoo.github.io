@@ -29,7 +29,7 @@
     </section>
 
     <!-- Script Voiceflow pour intégrer le nouveau chatbot avec extensions -->
-    <script type="module">
+    <script type="text/javascript">
         import { VideoExtension,
                 TimerExtension,
                 FormExtension,
@@ -50,9 +50,6 @@
               voice: { 
                 url: "https://runtime-api.voiceflow.com" 
               },
-            render: {
-              mode: 'overlay',
-            },
               autostart: true,
               allowDangerousHTML: true,
               assistant: {
