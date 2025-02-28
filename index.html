@@ -30,6 +30,8 @@
 
     <!-- Script Voiceflow pour intégrer le nouveau chatbot avec extensions -->
     <script type="text/javascript">
+      import { DisableInputExtension, VideoExtension, TimerExtension, FormExtension, MapExtension, FileUploadExtension, KBUploadExtension, DateExtension, ConfettiExtension, FeedbackExtension } from './extensions.js';
+        
       (function(d, t) {
           var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
           v.onload = function() {
@@ -39,6 +41,22 @@
               versionID: 'production', 
               voice: { 
                 url: "https://runtime-api.voiceflow.com" 
+              },
+              autostart: true,
+              allowDangerousHTML: true,
+              assistant: {
+                extensions: [
+                  DisableInputExtension,
+                  VideoExtension,
+                  TimerExtension,
+                  FormExtension,
+                  MapExtension,
+                  FileUploadExtension,
+                  KBUploadExtension,
+                  DateExtension,
+                  ConfettiExtension,
+                  FeedbackExtension,
+                ],
               }
             });
           }
