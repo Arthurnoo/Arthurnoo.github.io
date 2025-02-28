@@ -1,121 +1,83 @@
+<!-- THIS IS AN EXAMPLE PAGE AND SHOULD NOT BE USED OUTSIDE OF DEVELOPMENT -->
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>DrivIA</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<html>
+  <head>
+    <title>Chat Widget | Extensions Demo</title>
+    <style>
+      body {
+        background-color: #f9f9f9;
+      }
+      #flat-chat {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      #confetti-canvas {
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="confetti-canvas"></canvas>
+    <div id="flat-chat"></div>
+    <div id="voiceflow-chat-frame"></div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script type="module">
+      import { DisableInputExtension,
+                VideoExtension,
+                TimerExtension,
+                FormExtension,
+                MapExtension,
+                FileUploadExtension,
+                KBUploadExtension,
+                DateExtension,
+                ConfettiExtension,
+                FeedbackExtension } from '/extensions.js';
 
-    <!-- Bandeau fixe en haut de la page (sans logo et nom d'entreprise) -->
-    <header class="fixed-header">
-        <nav class="main-nav">
-            <ul>
-                <li><a href="a-propos-de-nous.html">À propos de nous</a></li>
-                <li><a href="projets.html">Projets</a></li>
-                <li><a href="nos-services.html">Nos services</a></li>
-                <li><a href="contact.html" class="contact-btn">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Section pour une future illustration -->
-    <section class="illustration-banner">
-        <div class="leitmotiv-container">
-            <h2 class="leitmotiv-text">L'IA qui fait tout</h2>
-            <h2 class="leitmotiv-text indent">Pour vous !</h2>
-        </div>
-    </section>
-
-    <!-- Script Voiceflow pour intégrer le nouveau chatbot avec extensions -->
-    <script type="text/javascript">
-        const FileUploadExtension = {
-  name: 'FileUpload',
-  type: 'response',
-  match: ({ trace }) =>
-    trace.type === 'ext_fileUpload' || trace.payload.name === 'ext_fileUpload',
-  render: ({ trace, element }) => {
-    const fileUploadContainer = document.createElement('div')
-    fileUploadContainer.innerHTML = `
-      <style>
-        .my-file-upload {
-          border: 2px dashed rgba(46, 110, 225, 0.3);
-          padding: 20px;
-          text-align: center;
-          cursor: pointer;
-        }
-      </style>
-      <div class='my-file-upload'>Glissez-déposez un fichier ici ou cliquez pour le télécharger</div>
-      <input type='file' style='display: none;'>
-    `
-
-    const fileInput = fileUploadContainer.querySelector('input[type=file]')
-    const fileUploadBox = fileUploadContainer.querySelector('.my-file-upload')
-
-    fileUploadBox.addEventListener('click', function () {
-      fileInput.click()
-    })
-
-    fileInput.addEventListener('change', function () {
-      const file = fileInput.files[0]
-      console.log('File selected:', file)
-
-      fileUploadContainer.innerHTML = `<img src="https://s3.amazonaws.com/com.voiceflow.studio/share/upload/upload.gif" alt="Upload" width="50" height="50">`
-
-      var data = new FormData()
-      data.append('file', file)
-
-      fetch('https://tmpfiles.org/api/v1/upload', {
-        method: 'POST',
-        body: data,
-      })
-        .then((response) => {
-          if (response.ok) {
-            return response.json()
-          } else {
-            throw new Error('Upload failed: ' + response.statusText)
-          }
-        })
-        .then((result) => {
-          fileUploadContainer.innerHTML =
-            '<img src="https://s3.amazonaws.com/com.voiceflow.studio/share/check/check.gif" alt="Done" width="50" height="50">'
-          console.log('File uploaded:', result.data.url)
-          window.voiceflow.chat.interact({
-            type: 'text',  // Utiliser 'text' plutôt que 'complete' pour éviter de bloquer la conversation
-					  payload: { message: `Fichier envoyé : ${result.data.url.replace('https://tmpfiles.org/', 'https://tmpfiles.org/dl/')}` }
-          })
-        })
-        .catch((error) => {
-          console.error(error)
-          fileUploadContainer.innerHTML = '<div>Error during upload</div>'
-        })
-    })
-
-    element.appendChild(fileUploadContainer)
-  }};
-            
-      (function(d, t) {
-          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-          v.onload = function() {
-            window.voiceflow.chat.load({
-              verify: { projectID: '679eb021485466595303ae72' },
-              url: 'https://general-runtime.voiceflow.com',
-              versionID: 'production', 
-              voice: { 
-                url: "https://runtime-api.voiceflow.com" 
-              },
-              autostart: true,
-              assistant: {
-                extensions: [
-                  FileUploadExtension,
-                ],
-              }
-            });
-          }
-          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+      (function (d, t) {
+        var v = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        v.onload = function () {
+          window.voiceflow.chat.load({
+            verify: { projectID: '679eb021485466595303ae72' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'development',
+            user: {
+              name: 'Demo User',
+            },
+            render: {
+              mode: 'overlay',
+            },
+            autostart: true,
+            allowDangerousHTML: true,
+            assistant: {
+              extensions: [
+                DisableInputExtension,
+                VideoExtension,
+                TimerExtension,
+                FormExtension,
+                MapExtension,
+                FileUploadExtension,
+                KBUploadExtension,
+                DateExtension,
+                ConfettiExtension,
+                FeedbackExtension,
+              ],
+            },
+          });
+        };
+        v.src = 'https://cdn.voiceflow.com/widget/bundle.mjs';
+        v.type = 'text/javascript';
+        s.parentNode.insertBefore(v, s);
       })(document, 'script');
     </script>
-
-</body>
+  </body>
 </html>
