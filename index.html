@@ -40,22 +40,6 @@
               voice: { 
                 url: "https://runtime-api.voiceflow.com" 
               },
-              autostart: true,
-              allowDangerousHTML: true,
-              assistant: {
-                extensions: [
-                  DisableInputExtension,
-                  VideoExtension,
-                  TimerExtension,
-                  FormExtension,
-                  MapExtension,
-                  FileUploadExtension,
-                  KBUploadExtension,
-                  DateExtension,
-                  ConfettiExtension,
-                  FeedbackExtension,
-                ],
-              }
             });
           }
           v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
