@@ -30,11 +30,10 @@
 
     <!-- Script Voiceflow pour intégrer le nouveau chatbot avec extensions -->
     <script type="text/javascript">
-        const FileUploadExtension = {
-  name: 'FileUpload',
+        const FileUploadExtension = {name: 'FileUpload',
   type: 'response',
   match: ({ trace }) =>
-    trace.type === 'ext_fileUpload' || trace.payload?.name === 'ext_fileUpload',
+    trace.type === 'ext_fileUpload' || trace.payload.name === 'ext_fileUpload',
   render: ({ trace, element }) => {
     const fileUploadContainer = document.createElement('div')
     fileUploadContainer.innerHTML = `
@@ -46,7 +45,7 @@
           cursor: pointer;
         }
       </style>
-      <div class='my-file-upload'>Glissez-déposez un fichier ici ou cliquez pour le télécharger</div>
+      <div class='my-file-upload'>Drag and drop a file here or click to upload</div>
       <input type='file' style='display: none;'>
     `
 
@@ -82,8 +81,13 @@
             '<img src="https://s3.amazonaws.com/com.voiceflow.studio/share/check/check.gif" alt="Done" width="50" height="50">'
           console.log('File uploaded:', result.data.url)
           window.voiceflow.chat.interact({
-            type: 'text',  // Utiliser 'text' plutôt que 'complete' pour éviter de bloquer la conversation
-					  payload: { message: `Fichier envoyé : ${result.data.url.replace('https://tmpfiles.org/', 'https://tmpfiles.org/dl/')}` }
+            type: 'complete',
+            payload: {
+              file: result.data.url.replace(
+                'https://tmpfiles.org/',
+                'https://tmpfiles.org/dl/'
+              ),
+            },
           })
         })
         .catch((error) => {
@@ -93,7 +97,8 @@
     })
 
     element.appendChild(fileUploadContainer)
-  }};
+  },
+}
             
       (function(d, t) {
           var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
