@@ -39,6 +39,20 @@
               versionID: 'production', 
               voice: { 
                 url: "https://runtime-api.voiceflow.com" 
+              },
+              assistant: {
+                extensions: [
+                  DisableInputExtension,
+                  VideoExtension,
+                  TimerExtension,
+                  FormExtension,
+                  MapExtension,
+                  FileUploadExtension,
+                  KBUploadExtension,
+                  DateExtension,
+                  ConfettiExtension,
+                  FeedbackExtension,
+                ],
               }
             });
           }
