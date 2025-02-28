@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Bonjour</title>
+    <title>DrivIA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -30,10 +30,11 @@
 
     <!-- Script Voiceflow pour intégrer le nouveau chatbot avec extensions -->
     <script type="text/javascript">
-        const FileUploadExtension = {name: 'FileUpload',
+        const FileUploadExtension = {
+  name: 'FileUpload',
   type: 'response',
   match: ({ trace }) =>
-    trace.type === 'ext_fileUpload' || trace.payload.name === 'ext_fileUpload',
+    trace.type === 'ext_fileUpload' || trace.payload?.name === 'ext_fileUpload',
   render: ({ trace, element }) => {
     const fileUploadContainer = document.createElement('div')
     fileUploadContainer.innerHTML = `
@@ -45,7 +46,7 @@
           cursor: pointer;
         }
       </style>
-      <div class='my-file-upload'>Drag and drop a file here or click to upload</div>
+      <div class='my-file-upload'>Glissez-déposez un fichier ici ou cliquez pour le télécharger</div>
       <input type='file' style='display: none;'>
     `
 
@@ -97,8 +98,7 @@
     })
 
     element.appendChild(fileUploadContainer)
-  },
-}
+  }};
             
       (function(d, t) {
           var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
