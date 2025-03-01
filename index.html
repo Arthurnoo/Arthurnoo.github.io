@@ -122,23 +122,30 @@
       })(document, 'script');
     </script>
 
-    <script type ="text/javascript">
+    <script type="text/javascript">
 function sleep(ms) {
-return new Promise(resolve = > setTimeout(resolve, ms));
+    return new Promise(resolve => setTimeout(resolve, ms)); // Correction de la flèche =>
 }
+
 async function runCode() {
-if (window.innerWidth > = 1024) (// Check if the screen width is greater than or equal to 1024
-(desktop)
-let element = document.querySelector(".vfrc-launcher");
-while (!element) {
-element = document.querySelector(".vfrc-launcher");
-await sleep(1000);
+    if (window.innerWidth >= 1024) { // Correction de la condition if
+        let element = document.querySelector(".vfrc-launcher");
+
+        // Attendre que l'élément soit disponible avant d'exécuter .click()
+        while (!element) {
+            await sleep(1000);
+            element = document.querySelector(".vfrc-launcher");
+        }
+
+        // Une fois trouvé, cliquer sur le bouton pour ouvrir le chatbot
+        element.click();
+    }
 }
-element.click():
-}
-}
-runCode():
+
+// Exécuter la fonction après le chargement complet de la page
+document.addEventListener("DOMContentLoaded", runCode);
 </script>
+
 
 </body>
 </html>
