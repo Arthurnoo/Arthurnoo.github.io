@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <title>Bonjour</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -123,29 +123,34 @@
     </script>
 
     <script type="text/javascript">
-        function sleep(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms)); // Correction de la flèche =>
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function openChatbotWhenReady() {
+        // Attendre que Voiceflow soit complètement chargé
+        while (!window.voiceflow || !window.voiceflow.chat) {
+            await sleep(500);
         }
 
-        async function runCode() {
-            if (window.innerWidth >= 1024) { // Correction de la condition if
-                let element = document.querySelector(".vfrc-launcher");
+        // Vérifier si l'élément d'ouverture du chatbot est présent
+        let element = document.querySelector(".vfrc-launcher");
 
-                // Attendre que l'élément soit disponible avant d'exécuter .click()
-                while (!element) {
-                    await sleep(1000);
-                    element = document.querySelector(".vfrc-launcher");
-                }
-
-                // Une fois trouvé, cliquer sur le bouton pour ouvrir le chatbot
-                element.click();
-            }
+        while (!element) {
+            await sleep(1000);
+            element = document.querySelector(".vfrc-launcher");
         }
 
-        // Exécuter la fonction après le chargement complet de la page
-        document.addEventListener("DOMContentLoaded", runCode);
-    </script>
+        // Ouvrir le chatbot après 1 seconde pour éviter tout conflit de chargement
+        await sleep(1000);
+        element.click();
+    }
 
+    // Exécuter après le chargement du DOM
+    document.addEventListener("DOMContentLoaded", () => {
+        openChatbotWhenReady();
+    });
+</script>
 
 </body>
 </html>
