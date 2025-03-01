@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Bonjour</title>
+    <title>Test</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -123,28 +123,28 @@
     </script>
 
     <script type="text/javascript">
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms)); // Correction de la flèche =>
-}
-
-async function runCode() {
-    if (window.innerWidth >= 1024) { // Correction de la condition if
-        let element = document.querySelector(".vfrc-launcher");
-
-        // Attendre que l'élément soit disponible avant d'exécuter .click()
-        while (!element) {
-            await sleep(1000);
-            element = document.querySelector(".vfrc-launcher");
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms)); // Correction de la flèche =>
         }
 
-        // Une fois trouvé, cliquer sur le bouton pour ouvrir le chatbot
-        element.click();
-    }
-}
+        async function runCode() {
+            if (window.innerWidth >= 1024) { // Correction de la condition if
+                let element = document.querySelector(".vfrc-launcher");
 
-// Exécuter la fonction après le chargement complet de la page
-document.addEventListener("DOMContentLoaded", runCode);
-</script>
+                // Attendre que l'élément soit disponible avant d'exécuter .click()
+                while (!element) {
+                    await sleep(1000);
+                    element = document.querySelector(".vfrc-launcher");
+                }
+
+                // Une fois trouvé, cliquer sur le bouton pour ouvrir le chatbot
+                element.click();
+            }
+        }
+
+        // Exécuter la fonction après le chargement complet de la page
+        document.addEventListener("DOMContentLoaded", runCode);
+    </script>
 
 
 </body>
