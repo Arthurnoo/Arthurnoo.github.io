@@ -123,38 +123,28 @@
     </script>
 
     <script type="text/javascript">
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    async function openChatbotWhenReady() {
-        console.log("⏳ En attente du chargement de Voiceflow...");
-
-        // Attendre que le script Voiceflow soit bien chargé
-        while (!window.voiceflow || !window.voiceflow.chat || !window.voiceflow.chat.open) {
-            await sleep(500);
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
         }
 
-        console.log("✅ Voiceflow détecté, attente du bouton...");
+        async function openChatbotWhenReady() {
+            console.log("⏳ Attente du chargement complet de Voiceflow...");
+    
+            // Attendre que l'API de Voiceflow soit bien chargée
+            while (!window.voiceflow || !window.voiceflow.chat || !window.voiceflow.chat.open) {
+                await sleep(500);
+            }
 
-        // Vérifier si l'élément de lancement du chatbot est présent
-        let element = document.querySelector(".vfrc-launcher");
+            console.log("✅ Voiceflow chargé, ouverture du chatbot...");
 
-        while (!element) {
-            await sleep(500);
-            element = document.querySelector(".vfrc-launcher");
+            // Ouvrir directement le chatbot via l'API officielle
+            window.voiceflow.chat.open();
         }
 
-        console.log("🎉 Chatbot prêt, ouverture automatique...");
+        // Exécuter après le chargement du DOM
+        document.addEventListener("DOMContentLoaded", openChatbotWhenReady);
+    </script>
 
-        // Ouvrir le chatbot après 1 seconde pour éviter tout conflit de chargement
-        await sleep(1000);
-        element.click();
-    }
-
-    // Exécuter après le chargement complet du DOM et du script Voiceflow
-    document.addEventListener("DOMContentLoaded", openChatbotWhenReady);
-</script>
 
 </body>
 </html>
