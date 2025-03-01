@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Bonjour</title>
+    <title>Test</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -128,28 +128,32 @@
     }
 
     async function openChatbotWhenReady() {
-        // Attendre que Voiceflow soit complètement chargé
-        while (!window.voiceflow || !window.voiceflow.chat) {
+        console.log("⏳ En attente du chargement de Voiceflow...");
+
+        // Attendre que le script Voiceflow soit bien chargé
+        while (!window.voiceflow || !window.voiceflow.chat || !window.voiceflow.chat.open) {
             await sleep(500);
         }
 
-        // Vérifier si l'élément d'ouverture du chatbot est présent
+        console.log("✅ Voiceflow détecté, attente du bouton...");
+
+        // Vérifier si l'élément de lancement du chatbot est présent
         let element = document.querySelector(".vfrc-launcher");
 
         while (!element) {
-            await sleep(1000);
+            await sleep(500);
             element = document.querySelector(".vfrc-launcher");
         }
+
+        console.log("🎉 Chatbot prêt, ouverture automatique...");
 
         // Ouvrir le chatbot après 1 seconde pour éviter tout conflit de chargement
         await sleep(1000);
         element.click();
     }
 
-    // Exécuter après le chargement du DOM
-    document.addEventListener("DOMContentLoaded", () => {
-        openChatbotWhenReady();
-    });
+    // Exécuter après le chargement complet du DOM et du script Voiceflow
+    document.addEventListener("DOMContentLoaded", openChatbotWhenReady);
 </script>
 
 </body>
